@@ -10,7 +10,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
   //match pin and mobile number
   if (contactNumber == "01878758877" && pin == "1234") {
     console.log(alert("Login Success"));
-    window.location.assign("/home.html");
+    window.location.assign("./home.html");
   } else {
     console.log(alert("Login Failed! Please Try Again"));
     return;
