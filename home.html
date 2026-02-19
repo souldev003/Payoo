@@ -115,8 +115,9 @@
                             value="1000" />
                         <br>
                         <label class="label text-neutral font-bold text-sm">Pin Number</label>
-                        <input id="add-money-pin" maxlength="4" minlength="4" type="password"
-                            class="input rounded-full bg-base-200 w-full" placeholder="Enter 4 Digit Pin" />
+                        <input id="add-money-pin" maxlength="4" minlength="4" type="password" inputmode="numeric"
+                            pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
+                            placeholder="Enter 4 Digit Pin" />
                         <button id="add-money-btn" class="btn btn-primary mt-4 rounded-full text-lg">Add Money</button>
                     </fieldset>
                 </div>
@@ -143,8 +144,9 @@
                             value="1000" />
                         <br>
                         <label class="label text-neutral font-bold text-sm">4 Digit Pin</label>
-                        <input id="input-pin" maxlength="4" minlength="4" type="password"
-                            class="input rounded-full bg-base-200 w-full" placeholder="Enter 4 Digit Pin" />
+                        <input id="input-pin" maxlength="4" minlength="4" type="password" inputmode="numeric"
+                            pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
+                            placeholder="Enter 4 Digit Pin" />
                         <button id="cash-out-btn" class="btn btn-primary mt-4 rounded-full text-lg">Withdraw
                             Money</button>
                     </fieldset>
