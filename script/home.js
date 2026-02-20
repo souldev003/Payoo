@@ -63,7 +63,6 @@ document.getElementById("add-money-btn").addEventListener("click", function () {
 });
 
 //Transfer money section
-
 document
   .getElementById("transfer-money-btn")
   .addEventListener("click", function () {
@@ -107,3 +106,21 @@ document
       document.getElementById("balance").innerText = newBalance;
     }
   });
+
+//Get Bonus section
+document.getElementById("get-bonus-btn").addEventListener("click", function () {
+  const mainBalance = document.getElementById("balance").innerText;
+  const bonusCoupon = document.getElementById("bonus-coupon-number").value;
+
+  const couponTk = bonusCoupon.slice(4);
+  const couponValue = Number(couponTk);
+
+  if (bonusCoupon.length != 7 || !bonusCoupon.startsWith("pyo-")) {
+    alert("invalid coupon");
+    return;
+  } else {
+    const newBalance = Number(mainBalance) + couponValue;
+    alert(`${couponValue} Tk added to your account.`);
+    document.getElementById("balance").innerText = newBalance;
+  }
+});
