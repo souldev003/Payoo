@@ -20,6 +20,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
     alert(`${pin} is not Valid Pin`);
     return;
   } else {
+    localStorage.setItem("userPin", pin);
     alert(`Login Successful`);
     window.location.assign("./home.html");
   }

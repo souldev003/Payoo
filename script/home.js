@@ -1,18 +1,27 @@
+//Access Pin User Logged in.
+// const userPin = localStorage.getItem("userPin");
+
 //CashOut Section
 document.getElementById("cash-out-btn").addEventListener("click", function () {
   //Access to all id
   const agentNumber = document.getElementById("agent-number").value;
+  const agentNumberNumeric = Number(agentNumber);
   const amountValue = document.getElementById("input-amount").value;
   const balanceText = document.getElementById("balance");
   const pin = document.getElementById("input-pin").value;
+  const userPin = localStorage.getItem("userPin");
 
   //Make some logic here
-  if (agentNumber.length !== 11) {
+  if (
+    agentNumber.length !== 11 ||
+    isNaN(agentNumberNumeric) ||
+    !agentNumber.startsWith("01")
+  ) {
     alert("Invalid Number!");
     return;
   }
 
-  if (pin !== "1234") {
+  if (pin !== userPin) {
     alert("Invalid Pin");
     return;
   }
@@ -40,20 +49,26 @@ document.getElementById("add-money-btn").addEventListener("click", function () {
   //Access All elements we need
   const bankStatus = getValueFromInput("bank-selection");
   const bankAccNum = getValueFromInput("bank-acc-number");
+  const bankAccNumNumeric = Number(bankAccNum);
   const addMoneyAmount = getValueFromInput("add-money-amount");
+  const addMoneyAmountNumeric = Number(addMoneyAmount);
   const pin = getValueFromInput("add-money-pin");
   const balance = getBalance("balance");
+  const userPin = localStorage.getItem("userPin");
 
   //Adding Logic to all elements
 
   if (bankStatus === "Select Bank") {
     alert("Please Select A Bank");
     return;
-  } else if (bankAccNum.length != 11) {
+  } else if (bankAccNum.length != 11 || isNaN(bankAccNumNumeric)) {
     alert("Invalid Bank Account Number");
     return;
-  } else if (pin !== "1234") {
+  } else if (pin !== userPin) {
     alert("Invalid Pin");
+    return;
+  } else if (isNaN(addMoneyAmountNumeric)) {
+    alert("Invalid Amount");
     return;
   } else {
     const newBalance = Number(balance) + Number(addMoneyAmount);
@@ -83,10 +98,12 @@ document
 
     //Access pin number
     const pin = document.getElementById("transfer-pin").value;
+    const userPin = localStorage.getItem("userPin");
 
     if (
       isNaN(transferAccountNumber) == true ||
-      transferAccountNumberInput.length != 11
+      transferAccountNumberInput.length != 11 ||
+      !transferAccountNumberInput.startsWith("01")
     ) {
       alert("Invalid Account Number");
       return;
@@ -97,7 +114,7 @@ document
     ) {
       alert(`Invalid Amount. ${transferAmountInput} isn't a valid Amount`);
       return;
-    } else if (pin !== "1234") {
+    } else if (pin !== userPin) {
       alert(`${pin} is not valid Pin.`);
       return;
     } else {
@@ -121,6 +138,47 @@ document.getElementById("get-bonus-btn").addEventListener("click", function () {
   } else {
     const newBalance = Number(mainBalance) + couponValue;
     alert(`${couponValue} Tk added to your account.`);
+    document.getElementById("balance").innerText = newBalance;
+  }
+});
+
+//Pay Bill Section
+document.getElementById("pay-bill-btn").addEventListener("click", function () {
+  const payBillSelection = document.getElementById("pay-bill-selection").value;
+  const payBillAccount = document.getElementById("payBill-acc-number").value;
+  const payBillAccountNumber = Number(payBillAccount);
+  const payBillAmountInput = document.getElementById("pay-bill-amount").value;
+  const payBillAmountNumeric = Number(payBillAmountInput);
+  const payBillPin = document.getElementById("pay-bill-pin").value;
+  const userPin = localStorage.getItem("userPin");
+  const balance = document.getElementById("balance").innerText;
+  const balanceNumeric = Number(balance);
+
+  if (payBillSelection == "Select Bill") {
+    alert(`Please Select Bill You Want to pay`);
+    return;
+  } else if (
+    payBillAccount.length != 11 ||
+    isNaN(payBillAccountNumber) ||
+    !payBillAccount.startsWith("01")
+  ) {
+    alert(`${payBillAccount} is not valid account.`);
+    return;
+  } else if (
+    payBillAmountNumeric >= balanceNumeric ||
+    isNaN(payBillAmountNumeric) ||
+    payBillAmountNumeric < 100
+  ) {
+    alert("Invalid Amount");
+    return;
+  } else if (payBillPin !== userPin) {
+    alert(`${payBillPin} is not Valid Pin.`);
+    return;
+  } else {
+    alert(
+      `${payBillAmountNumeric} Tk Successfully paid for ${payBillSelection}`,
+    );
+    const newBalance = balanceNumeric - payBillAmountNumeric;
     document.getElementById("balance").innerText = newBalance;
   }
 });
