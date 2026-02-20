@@ -79,12 +79,12 @@
                     <img src="./assets/opt-4.png" alt="add money logo">
                     <span>Get Bonus</span>
                 </button>
-                <button
+                <button onclick="showElement('pay-bill-section')"
                     class="btn btn-outline btn-primary flex flex-col items-center justify-center h-auto px-3 py-5 focus:bg-[#422AD7] focus:text-white">
                     <img src="./assets/opt-5.png" alt="add money logo">
                     <span>Pay Bill</span>
                 </button>
-                <button
+                <button onclick="showElement('transaction-section')"
                     class="btn btn-outline btn-primary flex flex-col items-center justify-center h-auto px-3 py-5 focus:bg-[#422AD7] focus:text-white">
                     <img src="./assets/opt-6.png" alt="add money logo">
                     <span>Transaction</span>
@@ -210,7 +210,7 @@
 
 
     <!-- Pay Bill Section -->
-    <section id="get-bonus-section" class="pt-10">
+    <section id="pay-bill-section" class="pt-10 hidden">
         <div class="w-11/12 mx-auto">
             <h1 class="text-neutral font-bold text-xl mb-4">Pay Bill</h1>
             <div class="card bg-base-100 w-full mx-auto rounded-2xl">
@@ -224,7 +224,6 @@
                             <option>Electricity Bill</option>
                         </select>
                         <br>
-
                         <label class="label text-neutral font-bold text-sm">Biller Account Number</label>
                         <input id="bank-acc-number" maxlength="11" minlength="11" type="text" inputmode="numeric"
                             pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
@@ -246,6 +245,28 @@
         </div>
     </section>
 
+
+    <!-- Transaction Section -->
+    <section id="transaction-section" class="pt-10 hidden">
+        <div class="w-11/12 mx-auto">
+            <div class="flex items-center justify-between">
+                <h1 class="text-neutral font-bold text-xl mb-4">Transaction History</h1>
+                <p class="text-neutral-500 cursor-pointer hover:text-blue-600">View Details</p>
+            </div>
+
+            <div class="mt-3">
+                <div class="bg-white flex items-center gap-4 p-4 rounded-xl">
+                    <div class="bg-[#F4F5F7] p-3 rounded-full">
+                        <img src="./assets/opt-1.png" alt="">
+                    </div>
+                    <div>
+                        <p>Hello Developers! how are u today</p>
+                        <p class="text-sm">Hello</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 

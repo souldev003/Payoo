@@ -16,11 +16,15 @@ function showElement(id) {
   const cashOut = document.getElementById("cash-out-section");
   const transferMoney = document.getElementById("transfer-money-section");
   const couponBonus = document.getElementById("get-bonus-section");
+  const payBill = document.getElementById("pay-bill-section");
+  const transaction = document.getElementById("transaction-section");
 
   addMoney.classList.add("hidden");
   cashOut.classList.add("hidden");
   transferMoney.classList.add("hidden");
   couponBonus.classList.add("hidden");
+  payBill.classList.add("hidden");
+  transaction.classList.add("hidden");
 
   document.getElementById(id).classList.remove("hidden");
 }
