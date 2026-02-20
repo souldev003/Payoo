@@ -42,6 +42,24 @@ document.getElementById("cash-out-btn").addEventListener("click", function () {
   const newBalance = currentBalance - amount;
   balanceText.innerText = newBalance;
   alert(`${amount} Tk Withdraw Successful`);
+
+  const now = new Date();
+  const time = now.toLocaleTimeString();
+  const date = now.toLocaleDateString();
+
+  const transactionDiv = document.getElementById("transaction-div");
+  const newTransaction = document.createElement("div");
+  newTransaction.innerHTML = `<div class="bg-white flex items-center gap-4 p-4 rounded-xl">
+    <div class="bg-[#F4F5F7] p-3 rounded-full">
+        <img src="./assets/opt-1.png" alt="Transaction logo">
+    </div>
+    <div>
+        <p class="">${amount} Tk Cash Out Successful to ${agentNumber} (Agent Number).</p>
+        <p class="text-sm">On ${date} at ${time}</p>
+    </div>
+    </div>`;
+
+  transactionDiv.append(newTransaction);
 });
 
 //Add Money Section
@@ -67,13 +85,31 @@ document.getElementById("add-money-btn").addEventListener("click", function () {
   } else if (pin !== userPin) {
     alert("Invalid Pin");
     return;
-  } else if (isNaN(addMoneyAmountNumeric)) {
+  } else if (isNaN(addMoneyAmountNumeric) || addMoneyAmountNumeric < 200) {
     alert("Invalid Amount");
     return;
   } else {
     const newBalance = Number(balance) + Number(addMoneyAmount);
     alert(`${addMoneyAmount} Tk Successfully Added from ${bankStatus} Bank`);
     document.getElementById("balance").innerText = newBalance;
+
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+    const date = now.toLocaleDateString();
+
+    const transactionDiv = document.getElementById("transaction-div");
+    const newTransaction = document.createElement("div");
+    newTransaction.innerHTML = `<div class="bg-white flex items-center gap-4 p-4 rounded-xl">
+    <div class="bg-[#F4F5F7] p-3 rounded-full">
+        <img src="./assets/opt-1.png" alt="Transaction logo">
+    </div>
+    <div>
+        <p class="">${addMoneyAmountNumeric} Tk Successfully added from ${bankStatus} Bank. Your Bank Account Number is: ${bankAccNum}</p>
+        <p class="text-sm">On ${date} at ${time}</p>
+    </div>
+    </div>`;
+
+    transactionDiv.append(newTransaction);
   }
 });
 
@@ -121,6 +157,24 @@ document
       const newBalance = balanceNumber - transferAmount;
       alert(`${transferAmount} Taka transfer Successful.`);
       document.getElementById("balance").innerText = newBalance;
+
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      const date = now.toLocaleDateString();
+
+      const transactionDiv = document.getElementById("transaction-div");
+      const newTransaction = document.createElement("div");
+      newTransaction.innerHTML = `<div class="bg-white flex items-center gap-4 p-4 rounded-xl">
+    <div class="bg-[#F4F5F7] p-3 rounded-full">
+        <img src="./assets/opt-1.png" alt="Transaction logo">
+    </div>
+    <div>
+        <p class="">${transferAmount} Tk Successfully sent to ${transferAccountNumberInput}.</p>
+        <p class="text-sm">On ${date} at ${time}</p>
+    </div>
+    </div>`;
+
+      transactionDiv.append(newTransaction);
     }
   });
 
@@ -139,6 +193,24 @@ document.getElementById("get-bonus-btn").addEventListener("click", function () {
     const newBalance = Number(mainBalance) + couponValue;
     alert(`${couponValue} Tk added to your account.`);
     document.getElementById("balance").innerText = newBalance;
+
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+    const date = now.toLocaleDateString();
+
+    const transactionDiv = document.getElementById("transaction-div");
+    const newTransaction = document.createElement("div");
+    newTransaction.innerHTML = `<div class="bg-white flex items-center gap-4 p-4 rounded-xl">
+    <div class="bg-[#F4F5F7] p-3 rounded-full">
+        <img src="./assets/opt-1.png" alt="Transaction logo">
+    </div>
+    <div>
+        <p class="">${couponValue} Tk Successfully added to your Account.</p>
+        <p class="text-sm">On ${date} at ${time}</p>
+    </div>
+    </div>`;
+
+    transactionDiv.append(newTransaction);
   }
 });
 
@@ -180,5 +252,23 @@ document.getElementById("pay-bill-btn").addEventListener("click", function () {
     );
     const newBalance = balanceNumeric - payBillAmountNumeric;
     document.getElementById("balance").innerText = newBalance;
+
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+    const date = now.toLocaleDateString();
+
+    const transactionDiv = document.getElementById("transaction-div");
+    const newTransaction = document.createElement("div");
+    newTransaction.innerHTML = `<div class="bg-white flex items-center gap-4 p-4 rounded-xl">
+    <div class="bg-[#F4F5F7] p-3 rounded-full">
+        <img src="./assets/opt-1.png" alt="Transaction logo">
+    </div>
+    <div>
+        <p class="">${payBillAmountNumeric} Tk Successfully paid for ${payBillSelection}.</p>
+        <p class="text-sm">On ${date} at ${time}</p>
+    </div>
+    </div>`;
+
+    transactionDiv.append(newTransaction);
   }
 });
