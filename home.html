@@ -69,7 +69,8 @@
                     <img src="./assets/opt-2.png" alt="add money logo">
                     <span>Cashout</span>
                 </button>
-                <button class="btn btn-outline btn-primary flex flex-col items-center justify-center h-auto px-3 py-5">
+                <button onclick="showElement('transfer-money-section')"
+                    class="btn btn-outline btn-primary flex flex-col items-center justify-center h-auto px-3 py-5">
                     <img src="./assets/opt-3.png" alt="add money logo">
                     <span class="">Transfer Money</span>
                 </button>
@@ -156,11 +157,40 @@
     </section>
 
 
+    <section id="transfer-money-section" class="pt-10 hidden">
+        <div class="w-11/12 mx-auto">
+            <h1 class="text-neutral font-bold text-xl mb-4">Transfer Money</h1>
+            <div class="card bg-base-100 w-full mx-auto rounded-2xl">
+                <div class="card-body">
+                    <fieldset class="fieldset">
+                        <label class="label text-neutral font-bold text-sm">User Account Number</label>
+                        <input id="transfer-account-number" maxlength="11" minlength="11" type="text"
+                            inputmode="numeric" pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
+                            placeholder="Enter 11 digit Number" value="01878758877" />
+                        <br>
+                        <label class="label text-neutral font-bold text-sm">Amount</label>
+                        <input id="transfer-amount" type="text" inputmode="numeric" pattern="[0-9]*"
+                            class="input rounded-full bg-base-200 w-full" placeholder="Enter amount to Transfer"
+                            value="1000" />
+                        <br>
+                        <label class="label text-neutral font-bold text-sm">4 Digit Pin</label>
+                        <input id="transfer-pin" maxlength="4" minlength="4" type="password" inputmode="numeric"
+                            pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
+                            placeholder="Enter 4 Digit Pin" />
+                        <button id="transfer-money-btn" class="btn btn-primary mt-4 rounded-full text-lg">Transfer
+                            Money</button>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
 
 
     </div>
-    <script src="script/machine.js"></script>
+    <script src="./script/machine.js"></script>
     <script src="./script/home.js"></script>
 </body>
 

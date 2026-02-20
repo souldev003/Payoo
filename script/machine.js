@@ -14,9 +14,11 @@ function getBalance(id) {
 function showElement(id) {
   const addMoney = document.getElementById("add-money-section");
   const cashOut = document.getElementById("cash-out-section");
+  const transferMoney = document.getElementById("transfer-money-section");
 
   addMoney.classList.add("hidden");
   cashOut.classList.add("hidden");
+  transferMoney.classList.add("hidden");
 
   document.getElementById(id).classList.remove("hidden");
 }

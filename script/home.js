@@ -61,3 +61,49 @@ document.getElementById("add-money-btn").addEventListener("click", function () {
     document.getElementById("balance").innerText = newBalance;
   }
 });
+
+//Transfer money section
+
+document
+  .getElementById("transfer-money-btn")
+  .addEventListener("click", function () {
+    //Access to the account number and checking validity.
+    const transferAccountNumberInput = document.getElementById(
+      "transfer-account-number",
+    ).value;
+    const transferAccountNumber = Number(transferAccountNumberInput);
+
+    //Access to the Amount and Checking Validity.
+    const transferAmountInput =
+      document.getElementById("transfer-amount").value;
+    const transferAmount = Number(transferAmountInput);
+
+    //Access to the Balance.
+    const balance = document.getElementById("balance").innerText;
+    const balanceNumber = Number(balance);
+
+    //Access pin number
+    const pin = document.getElementById("transfer-pin").value;
+
+    if (
+      isNaN(transferAccountNumber) == true ||
+      transferAccountNumberInput.length != 11
+    ) {
+      alert("Invalid Account Number");
+      return;
+    } else if (
+      isNaN(transferAmount) == true ||
+      transferAmount >= balanceNumber ||
+      transferAmount < 200
+    ) {
+      alert(`Invalid Amount. ${transferAmountInput} isn't a valid Amount`);
+      return;
+    } else if (pin !== "1234") {
+      alert(`${pin} is not valid Pin.`);
+      return;
+    } else {
+      const newBalance = balanceNumber - transferAmount;
+      alert(`${transferAmount} Taka transfer Successful.`);
+      document.getElementById("balance").innerText = newBalance;
+    }
+  });
