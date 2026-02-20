@@ -111,12 +111,12 @@
                         <label class="label text-neutral font-bold text-sm">Bank Account Number</label>
                         <input id="bank-acc-number" maxlength="11" minlength="11" type="text" inputmode="numeric"
                             pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
-                            placeholder="Enter 11 digit Account Number" value="01878758877" />
+                            placeholder="Enter 11 digit Account Number" value="" />
                         <br>
                         <label class="label text-neutral font-bold text-sm">Amount To Add</label>
                         <input id="add-money-amount" type="text" inputmode="numeric" pattern="[0-9]*"
                             class="input rounded-full bg-base-200 w-full" placeholder="Enter amount to Add Money"
-                            value="1000" />
+                            value="" />
                         <br>
                         <label class="label text-neutral font-bold text-sm">Pin Number</label>
                         <input id="add-money-pin" maxlength="4" minlength="4" type="password" inputmode="numeric"
@@ -140,12 +140,12 @@
                         <label class="label text-neutral font-bold text-sm">Agent Number</label>
                         <input id="agent-number" maxlength="11" minlength="11" type="text" inputmode="numeric"
                             pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
-                            placeholder="Enter 11 digit Number" value="01878758877" />
+                            placeholder="Enter 11 digit Number" value="" />
                         <br>
                         <label class="label text-neutral font-bold text-sm">Amount</label>
                         <input id="input-amount" type="text" inputmode="numeric" pattern="[0-9]*"
                             class="input rounded-full bg-base-200 w-full" placeholder="Enter amount to withdraw"
-                            value="1000" />
+                            value="" />
                         <br>
                         <label class="label text-neutral font-bold text-sm">4 Digit Pin</label>
                         <input id="input-pin" maxlength="4" minlength="4" type="password" inputmode="numeric"
@@ -170,12 +170,12 @@
                         <label class="label text-neutral font-bold text-sm">User Account Number</label>
                         <input id="transfer-account-number" maxlength="11" minlength="11" type="text"
                             inputmode="numeric" pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
-                            placeholder="Enter 11 digit Number" value="01878758877" />
+                            placeholder="Enter 11 digit Number" value="" />
                         <br>
                         <label class="label text-neutral font-bold text-sm">Amount</label>
                         <input id="transfer-amount" type="text" inputmode="numeric" pattern="[0-9]*"
                             class="input rounded-full bg-base-200 w-full" placeholder="Enter amount to Transfer"
-                            value="1000" />
+                            value="" />
                         <br>
                         <label class="label text-neutral font-bold text-sm">4 Digit Pin</label>
                         <input id="transfer-pin" maxlength="4" minlength="4" type="password" inputmode="numeric"
@@ -202,6 +202,44 @@
                         <br>
                         <button id="get-bonus-btn" class="btn btn-primary mt-4 rounded-full text-lg">Get
                             Bonus</button>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Pay Bill Section -->
+    <section id="get-bonus-section" class="pt-10">
+        <div class="w-11/12 mx-auto">
+            <h1 class="text-neutral font-bold text-xl mb-4">Pay Bill</h1>
+            <div class="card bg-base-100 w-full mx-auto rounded-2xl">
+                <div class="card-body">
+                    <fieldset class="fieldset">
+                        <label class="label text-neutral font-bold text-sm">Select To Pay</label>
+                        <select id="bank-selection" class="select bg-[#F4F5F7] w-full rounded-full">
+                            <option disabled selected>Select Bill</option>
+                            <option>Wifi Bill</option>
+                            <option>Gas Bill</option>
+                            <option>Electricity Bill</option>
+                        </select>
+                        <br>
+
+                        <label class="label text-neutral font-bold text-sm">Biller Account Number</label>
+                        <input id="bank-acc-number" maxlength="11" minlength="11" type="text" inputmode="numeric"
+                            pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
+                            placeholder="Enter Account Number" value="" />
+                        <br>
+                        <label class="label text-neutral font-bold text-sm">Amount To Add</label>
+                        <input id="add-money-amount" type="text" inputmode="numeric" pattern="[0-9]*"
+                            class="input rounded-full bg-base-200 w-full" placeholder="Enter amount to Pay Bill"
+                            value="" />
+                        <br>
+                        <label class="label text-neutral font-bold text-sm">Pin Number</label>
+                        <input id="add-money-pin" maxlength="4" minlength="4" type="password" inputmode="numeric"
+                            pattern="[0-9]*" class="input rounded-full bg-base-200 w-full"
+                            placeholder="Enter 4 Digit Pin" />
+                        <button id="add-money-btn" class="btn btn-primary mt-4 rounded-full text-lg">Pay Bill</button>
                     </fieldset>
                 </div>
             </div>

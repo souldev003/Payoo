@@ -17,7 +17,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
   ) {
     alert(`${contactNumber} is not Valid Number.`);
   } else if (pin.length != 4 || isNaN(pinNumeric) == true) {
-    alert(`${pin} is Invalid`);
+    alert(`${pin} is not Valid Pin`);
     return;
   } else {
     alert(`Login Successful`);
